@@ -1,0 +1,39 @@
+CODIGO MYSQL
+
+-- Criar o banco de dados
+CREATE DATABASE IF NOT EXISTS sistema_cadastro;
+
+-- Usar o banco de dados
+USE sistema_cadastro;
+
+-- Criar a tabela de clientes
+CREATE TABLE IF NOT EXISTS clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY, -- ID único para cada cliente
+    nome VARCHAR(100) NOT NULL,        -- Nome do cliente
+    email VARCHAR(100) NOT NULL,       -- Email do cliente
+    telefone VARCHAR(15)               -- Telefone do cliente (opcional)
+);
+
+-- Inserir alguns registros iniciais para teste
+INSERT INTO clientes (nome, email, telefone)
+VALUES 
+('Jander Lucas', 'jander@example.com', '(83) 98777-0587'),
+('Maria Silva', 'maria.silva@example.com', '(83) 98888-1234'),
+('João Santos', 'joao.santos@example.com', '(83) 98123-4567');
+
+-- Consultar todos os clientes
+SELECT * FROM clientes;
+
+-- Consultar um cliente específico pelo ID
+SELECT * FROM clientes WHERE id = 1;
+
+-- Atualizar o telefone de um cliente
+UPDATE clientes
+SET telefone = '(83) 99999-1111'
+WHERE id = 1;
+
+-- Deletar um cliente pelo ID
+DELETE FROM clientes WHERE id = 3;
+
+-- Consultar novamente para verificar os dados atualizados
+SELECT * FROM clientes;
