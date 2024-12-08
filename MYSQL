@@ -1,0 +1,67 @@
+A3 MYSQL 
+import mysql.connector
+
+# Conectar ao banco de dados MySQL
+conexao = mysql.connector.connect(
+    host="localhost",      # Host do MySQL
+    user="root",           # Usuário do MySQL (alterar conforme sua configuração)
+    password="12345",      # Senha do MySQL (alterar conforme sua configuração)
+    database="SistemaCadastro"  # Nome do banco de dados
+)
+
+# Criar um cursor para executar as consultas
+cursor = conexao.cursor()
+
+# Função para adicionar um cliente
+def adicionar_cliente(nome, email, telefone):
+    sql = "INSERT INTO clientes (nome, email, telefone) VALUES (%s, %s, %s)"
+    cursor.execute(sql, (nome, email, telefone))
+    conexao.commit()  # Confirma a transação
+    print(f"Cliente {nome} adicionado com sucesso!")
+
+# Função para listar os clientes
+def listar_clientes():
+    sql = "SELECT * FROM clientes"
+    cursor.execute(sql)
+    clientes = cursor.fetchall()
+    if not clientes:
+        print("Nenhum cliente cadastrado.")
+    else:
+        print("\n--- Lista de Clientes ---")
+        for cliente in clientes:
+            print(f"ID: {cliente[0]}, Nome: {cliente[1]}, Email: {cliente[2]}, Telefone: {cliente[3]}")
+
+# Função para editar um cliente
+def editar_cliente(id_cliente, nome=None, email=None, telefone=None):
+    sql = "UPDATE clientes SET nome = %s, email = %s, telefone = %s WHERE id = %s"
+    cursor.execute(sql, (nome, email, telefone, id_cliente))
+    conexao.commit()
+    print(f"Cliente ID {id_cliente} atualizado com sucesso!")
+
+# Função para deletar um cliente
+def deletar_cliente(id_cliente):
+    sql = "DELETE FROM clientes WHERE id = %s"
+    cursor.execute(sql, (id_cliente,))
+    conexao.commit()
+    print(f"Cliente ID {id_cliente} removido com sucesso!")
+
+# Exemplo de como usar as funções
+if __name__ == "__main__":
+    # Adicionar um cliente
+    adicionar_cliente("Lucas Silva", "lucasdevv02@gmail.com", "83981850665")
+    
+    # Listar clientes
+    listar_clientes()
+    
+    # Editar cliente (alterando o nome e o telefone)
+    editar_cliente(1, nome="Lucas S. Silva", telefone="83981850666")
+    
+    # Deletar cliente
+    deletar_cliente(1)
+
+    # Listar clientes novamente
+    listar_clientes()
+
+# Fechar a conexão
+cursor.close()
+conexao.close()
