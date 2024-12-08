@@ -1,0 +1,28 @@
+A3 unittest
+
+import unittest
+from sistema_cadastro import sistema_cadastro , Cliente
+
+
+class TestSistemaCadastro(unittest.TestCase):
+    def setUp(self):
+        self.sistema = sistema_cadastro()
+
+    def test_adicionar_cliente(self):
+        self.sistema.adicionar_cliente("João", "joao@email.com", "123456789")
+        self.assertEqual(len(self.sistema.clientes), 1)
+        self.assertEqual(self.sistema.clientes[0].nome, "João")
+
+    def test_editar_cliente(self):
+        self.sistema.adicionar_cliente("João", "joao@email.com", "123456789")
+        self.sistema.editar_cliente(1, nome="João Silva")
+        self.assertEqual(self.sistema.clientes[0].nome, "João Silva")
+
+    def test_deletar_cliente(self):
+        self.sistema.adicionar_cliente("João", "joao@email.com", "123456789")
+        self.sistema.deletar_cliente(1)
+        self.assertEqual(len(self.sistema.clientes), 0)
+
+
+if __name__ == "__main__":
+    unittest.main()
