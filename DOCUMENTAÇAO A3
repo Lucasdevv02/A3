@@ -1,0 +1,77 @@
+                                   A3
+Equipe: Jander Lucas/ RA: 1362312282
+
+1. Estimativa de Esforço e Planejamento
+Funcionalidades Básicas do Sistema:
+
+⦁	Adicionar Clientes: Formulário para inserir nome, CPF, telefone e endereço.
+⦁	Editar Clientes: Permitir alterar dados de clientes existentes.
+⦁	Listar Clientes: Exibir uma tabela com os dados de todos os clientes cadastrados.
+⦁	Deletar Clientes: Opção para excluir registros de clientes.
+⦁	Organização do Trabalho no Grupo:
+
+Divisão de Tarefas:
+⦁	Back-End: Implementação da lógica e conexão ao banco de dados.
+⦁	Testes: Desenvolvimento e execução de testes unitários.
+⦁	Documentação e Controle de Versão: Gerenciamento do repositório e manutenção de documentação.
+Cronograma:
+⦁	Semana 1: Definição dos requisitos, planejamento e configuração do ambiente de trabalho.
+⦁	Semana 2: Desenvolvimento das funcionalidades básicas.
+⦁	Semana 3: Realização de testes e ajustes necessários.
+⦁	Semana 4: Finalização, revisão e entrega.
+2. Modelos de Qualidade
+⦁	Modelo Escolhido: MPS.BR
+
+Justificativa da Escolha:
+Adequado para pequenas e médias equipes.
+Estruturado para melhoria contínua de processos.
+Melhor alinhado ao cenário de grupos acadêmicos.
+Implementação do Modelo:
+⦁	Definição de Processos: Criação de fluxos para desenvolvimento, testes e revisão.
+⦁	Gestão de Requisitos: Requisitos documentados em uma planilha compartilhada.
+⦁	Controle de Qualidade: Revisão do código em pares (Code Review) antes da integração.
+⦁	Rastreabilidade: Uso do Git para rastrear mudanças e associá-las aos requisitos.
+3. Estratégias de Teste
+Testes Unitários:
+Implementados para validar cada funcionalidade isoladamente.
+Ferramenta: Utilização do framework de testes (como JUnit para Java ou Pytest para Python).
+Exemplos de Testes:
+Verificar se um cliente é adicionado corretamente ao banco de dados.
+Testar se a funcionalidade de edição atualiza os dados corretamente.
+Validar que a listagem retorna todos os clientes cadastrados.
+Confirmar que a exclusão remove os dados do cliente desejado.
+4. Evolução do Software
+Cenários de Evolução:
+
+Manutenção:
+Correção de bugs detectados em produção.
+Adaptação a novas leis de privacidade (ex.: LGPD).
+Melhorias:
+Implementar buscas avançadas por nome ou CPF.
+Adicionar funcionalidades como envio de notificações para clientes.
+Substituição de Componentes:
+Atualização de frameworks e bibliotecas desatualizadas.
+Troca do banco de dados local por um serviço na nuvem para escalabilidade.
+Planejamento de Evolução:
+Monitoramento contínuo de feedback dos usuários.
+Atualizações programadas para minimizar impacto.
+5. Controle de Versão
+Ferramenta Utilizada: Git
+
+Repositório criado no GitHub/GitLab para centralizar o código.
+Configuração do Repositório:
+
+Criação do Repositório:
+Acesso à plataforma (GitHub, GitLab).
+Configuração inicial do repositório (nome, descrição, README).
+Fluxo de Trabalho:
+Branch principal: main para código final e estável.
+Branches secundárias: Criadas para cada tarefa (ex.: feature/add-client, fix/bug-edit).
+Pull Requests: Requisições de merge revisadas por outro membro antes da integração.
+Comandos Básicos:
+Clonar o repositório: git clone <URL do repositório>
+Criar uma branch: git checkout -b <nome-da-branch>
+Adicionar mudanças: git add .
+Commitar mudanças: git commit -m "Descrição das mudanças"
+Enviar para o repositório remoto: git push origin <nome-da-branch>
+Documentação do Repositório:
