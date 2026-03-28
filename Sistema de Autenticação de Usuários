@@ -1,0 +1,38 @@
+# Projeto: Sistema de Autenticação de Usuários
+# Foco: Lógica de segurança, loops e dicionários
+
+def sistema_login():
+    # Simulando um banco de dados de usuários (Login: Senha)
+    usuarios = {
+        "lucas_dev": "ads2026",
+        "admin": "1234",
+        "convidado": "senha123"
+    }
+    
+    tentativas = 0
+    max_tentativas = 3
+    
+    print("--- SISTEMA DE ACESSO RESTRITO ---")
+    usuario_input = input("Usuário: ").strip()
+    
+    if usuario_input not in usuarios:
+        print("❌ Usuário não cadastrado!")
+        return
+
+    while tentativas < max_tentativas:
+        senha_input = input(f"Digite a senha para '{usuario_input}': ")
+        
+        if senha_input == usuarios[usuario_input]:
+            print(f"\n✅ Acesso Concedido! Bem-vindo, {usuario_input}.")
+            # Aqui entraria o resto do seu programa
+            break
+        else:
+            tentativas += 1
+            restantes = max_tentativas - tentativas
+            if restantes > 0:
+                print(f"⚠️ Senha incorreta! Você tem mais {restantes} tentativa(s).")
+            else:
+                print("\n🚫 ACESSO BLOQUEADO! Procure o administrador do sistema.")
+                
+if _name_ == "_main_":
+    sistema_login()
