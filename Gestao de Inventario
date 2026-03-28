@@ -1,0 +1,76 @@
+# Projeto: Gestão de Inventário (CRUD com Listas)
+# Foco: Manipulação de listas, busca por índice e dicionários
+
+def sistema_loja():
+    inventario = [] # Lista que guardará os dicionários (produtos)
+
+    while True:
+        print("\n" + "="*30)
+        print("   SISTEMA DE INVENTÁRIO")
+        print("="*30)
+        print("1. Adicionar Produto")
+        print("2. Listar Todos os Produtos")
+        print("3. Buscar Produto por Nome")
+        print("4. Atualizar Preço")
+        print("5. Remover Produto")
+        print("6. Sair")
+        
+        opcao = input("\nEscolha uma opção: ")
+
+        if opcao == "1":
+            nome = input("Nome do produto: ").strip().capitalize()
+            qtd = int(input("Quantidade em estoque: "))
+            preco = float(input("Preço unitário: R$ "))
+            
+            produto = {"nome": nome, "qtd": qtd, "preco": preco}
+            inventario.append(produto)
+            print(f"✅ {nome} adicionado ao estoque!")
+
+        elif opcao == "2":
+            print("\n--- ESTOQUE ATUAL ---")
+            if not inventario:
+                print("O inventário está vazio.")
+            else:
+                for p in inventario:
+                    print(f"Produto: {p['nome']} | Qtd: {p['qtd']} | Preço: R${p['preco']:.2f}")
+
+        elif opcao == "3":
+            busca = input("Digite o nome do produto para buscar: ").strip().capitalize()
+            encontrado = False
+            for p in inventario:
+                if p['nome'] == busca:
+                    print(f"🔍 Encontrado: {p['nome']} | Estoque: {p['qtd']} | Valor: R${p['preco']:.2f}")
+                    encontrado = True
+                    break
+            if not encontrado:
+                print("❌ Produto não localizado.")
+
+        elif opcao == "4":
+            busca = input("Nome do produto para mudar o preço: ").strip().capitalize()
+            for p in inventario:
+                if p['nome'] == busca:
+                    novo_preco = float(input(f"Novo preço para {p['nome']}: R$ "))
+                    p['preco'] = novo_preco
+                    print("💰 Preço atualizado!")
+                    break
+            else:
+                print("❌ Produto não encontrado.")
+
+        elif opcao == "5":
+            busca = input("Nome do produto para remover: ").strip().capitalize()
+            for i, p in enumerate(inventario):
+                if p['nome'] == busca:
+                    removido = inventario.pop(i)
+                    print(f"🗑️ {removido['nome']} removido com sucesso.")
+                    break
+            else:
+                print("❌ Produto não encontrado.")
+
+        elif opcao == "6":
+            print("Encerrando sistema...")
+            break
+        else:
+            print("⚠️ Opção inválida!")
+
+if _name_ == "_main_":
+    sistema_loja()
